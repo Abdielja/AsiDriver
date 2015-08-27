@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:int="http://www.springframework.org/schema/integration"
+	xmlns:int-jdbc="http://www.springframework.org/schema/integration/jdbc"
+	xmlns:int-ip="http://www.springframework.org/schema/integration/ip"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+		http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+		http://www.springframework.org/schema/integration/jdbc http://www.springframework.org/schema/integration/jdbc/spring-integration-jdbc.xsd
+		http://www.springframework.org/schema/integration/ip http://www.springframework.org/schema/integration/ip/spring-integration-ip.xsd">
+
+
+	<!-- <context:property-placeholder /> -->
+
+	<!-- Load configuration properties files -->
+	<context:property-placeholder 
+		location="asi-driver.properties, remote-db.properties" 
+		ignore-unresolvable="true"
+	/>	
+
+	<!-- ***** BEGIN: SCII Application Settings Bean ***** -->
+	
+	<bean id="appSettings" class="com.asi.driver.config.AppSettings"> 
+	  <property name="charset" value="${tcp.charset}"/> 
+	  <property name="port" value="${tcp.port}"/> 
+	</bean>
+	
+	<!-- ***** END: SCII Application Settings Bean ***** -->
+	
+	
+	<!-- ***** BEGIN: Common Persistence Beans ***** -->
+	
+	<!-- DataSource -->
+	<bean class="org.apache.commons.dbcp.BasicDataSource" id="dataSource" destroy-method="close">
+	
+		<property name="driverClassName" value="${database.driver}"/> 
+		<property name="url" value="${database.url}"/> 
+		<property name="username" value="${database.user}"/> 
+		<property name="password" value="${database.password}"/>
+	  
+		<!-- <property name="driverClassName" value="org.hsqldb.jdbcDriver"/> 
+		<property name="url" value="jdbc:hsqldb:hsql://localhost:9001"/> 
+		<property name="username" value="sa"/> 
+		<property name="password" value=""/> -->
+	
+	</bean> 
+
+	<!-- ***** END: Common Persistence Beans ***** -->
+	 
+	<!-- Common Beans -->
+	<bean id="javaSerializer" 	class="org.springframework.integration.ip.tcp.serializer.ByteArrayLfSerializer"/>
+	<bean id="javaDeserializer" class="org.springframework.integration.ip.tcp.serializer.ByteArrayLfSerializer"/>
+
+	<!-- ***** Server side ***** -->
+
+	<!-- Channels -->
+	<int:channel id="request" />
+ 	<int:channel id="decoded-request"></int:channel>
+ 	<int:channel id="decrypted-request"></int:channel>
+
+ 	<int:channel id="sp_response"></int:channel>
+ 	<int:channel id="response"></int:channel>
+ 	<int:channel id="encrypted-response"></int:channel>
+ 	<int:channel id="encoded-response"></int:channel>
+
+	<!-- Connection Factory -->
+ 	<int-ip:tcp-connection-factory id="server" type="server"
+ 		port="${availableServerSocket}" deserializer="javaDeserializer"
+ 		serializer="javaSerializer" single-use="true" />
+
+	<!-- Inbound TCP Gateway -->
+ 	<int-ip:tcp-inbound-gateway id="gatewayLf" connection-factory="server" 
+		request-channel="request" auto-startup="true" reply-channel="encoded-response"/>
+
+	<!-- Encryption Transformers -->
+ 	<int:transformer id="encryptor-transformer"
+ 		output-channel="encrypted-response"
+ 		ref="encryptionService" method="encrypt" input-channel="response">
+ 	</int:transformer>
+
+ 	<int:transformer id="decryptor-transformer" 
+ 		input-channel="decoded-request" output-channel="decrypted-request" 
+ 		ref="encryptionService" method="decrypt">
+ 	</int:transformer>
+
+
+	<!-- Encoder Transformers -->
+ 	<int:transformer id="encoder-transformer"
+ 		input-channel="encrypted-response" output-channel="encoded-response"  
+ 		ref="encoderService" method="encode">
+ 	</int:transformer>
+
+ 	<int:transformer id="decoder-transformer"
+ 		output-channel="decoded-request"
+ 		ref="encoderService" method="decode" input-channel="request">
+ 	</int:transformer>
+
+	<!-- Store Procedure Processor Service Activator -->
+ 	<int:service-activator output-channel="response"
+ 		id="sp_response-service-activator" input-channel="sp_response"
+ 		ref="spResponseProcessor" method="process">
+ 	</int:service-activator>
+ 	
+	<!-- ***** JDBC SP Outbound Gateway ***** -->
+
+	<int-jdbc:stored-proc-outbound-gateway
+		id="outbound-gateway-storedproc" data-source="dataSource"
+		request-channel="decrypted-request" reply-channel="sp_response" is-function="false"
+		stored-procedure-name="is_p_autorizar_msg" >
+		<int-jdbc:sql-parameter-definition name="Pi_CodProceso"  type="INTEGER" direction="IN"/>
+		<int-jdbc:sql-parameter-definition name="Pv_MsgReqRes" 	 type="VARCHAR" direction="INOUT"/>
+		<int-jdbc:sql-parameter-definition name="Pv_CodigoError" type="VARCHAR" direction="INOUT"/>
+		<int-jdbc:parameter name="Pi_CodProceso" expression="1" />
+		<int-jdbc:parameter name="Pv_MsgReqRes" expression="payload" />
+		<int-jdbc:parameter name="Pv_CodigoError" expression="200" />
+    </int-jdbc:stored-proc-outbound-gateway>
+
+	<!-- ***** Encoding Service ***** -->
+	
+ 	<bean id="encoderService" class="com.asi.driver.encode.EncodeServiceHex" />
+
+	<!-- ***** Encryption Service ***** -->
+	
+ 	<bean id="encryptionService" class="com.asi.driver.encryption.EncryptionServiceDES" />
+
+	<!-- ***** Processor Service ***** -->
+	
+ 	<bean id="spResponseProcessor" class="com.asi.driver.utils.SpResponseProcessor" />
+
+
+ 	<!-- Tests
+
+ 	<bean id="testService" class="com.asi.driver.utils.TestService" />
+ 	 	
+ 	<int:service-activator ref="testService"
+ 		method="delay" id="test-service-activator">
+ 	</int:service-activator>
+ 	 -->
+
+</beans>
