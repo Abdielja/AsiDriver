@@ -29,20 +29,8 @@ import com.asi.driver.config.AppSettings;
 public class EncryptionServiceDES implements IEncryptionService
 {
 
-  /* *******************************************
-   * 
-   *  Private Class Members
-   *  
-   * *******************************************/
-  
   private static final Logger LOGGER = Logger.getLogger(EncryptionServiceDES.class);
- 
-  /* *******************************************
-   * 
-   *  IEncryptionService Methods Implementation
-   *  
-   * *******************************************/
-  
+   
   @Override
   public void keyGen(String algorithm) throws NoSuchAlgorithmException
   {

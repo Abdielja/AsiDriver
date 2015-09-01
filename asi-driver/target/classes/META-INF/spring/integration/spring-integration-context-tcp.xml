@@ -130,7 +130,7 @@
 
 	<!-- ***** Processor Service ***** -->
 	
- 	<bean id="spResponseProcessor" class="com.asi.driver.utils.SpResponseProcessor" />
+ 	<bean id="spResponseProcessor" class="com.asi.driver.processor.SpResponseProcessor" />
 
 
  	<!-- Tests
