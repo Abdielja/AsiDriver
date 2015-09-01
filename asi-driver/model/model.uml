@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_R0HVIFCpEeW99N7PiPrPUQ" name="RootElement">
+  <packagedElement xmi:type="uml:Model" xmi:id="_1UkgcFCqEeW99N7PiPrPUQ" name="src">
+    <packagedElement xmi:type="uml:Package" xmi:id="_1UkgcVCqEeW99N7PiPrPUQ" name="com">
+      <packagedElement xmi:type="uml:Package" xmi:id="_1UkgclCqEeW99N7PiPrPUQ" name="asi">
+        <packagedElement xmi:type="uml:Package" xmi:id="_1Ukgc1CqEeW99N7PiPrPUQ" name="driver">
+          <packagedElement xmi:type="uml:Class" xmi:id="_1UqnEFCqEeW99N7PiPrPUQ" name="Main" visibility="public" isLeaf="true">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_1UqnEVCqEeW99N7PiPrPUQ">
+              <body>
+ * Starts the Spring Context and will initialize the Spring Integration routes.
+ *
+ * @author Abdiel Jaramillo Ojedis
+ * @since 1.0
+ *
+ </body>
+            </ownedComment>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_1UqnE1CqEeW99N7PiPrPUQ" name="asiDriver" visibility="private" isLeaf="true" type="_1UqnElCqEeW99N7PiPrPUQ" isUnique="false"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_1UqnGFCqEeW99N7PiPrPUQ" name="main" visibility="public" isStatic="true">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_1UqnGVCqEeW99N7PiPrPUQ">
+                <body>
+   * Load the Spring Integration Application Context
+   *
+   * @param args
+   *          - command line arguments
+   </body>
+              </ownedComment>
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_1UqnGlCqEeW99N7PiPrPUQ" name="args" type="_1UqnF1CqEeW99N7PiPrPUQ"/>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Class" xmi:id="_1UqnElCqEeW99N7PiPrPUQ" name="AsiDriver" visibility="public">
+            <ownedComment xmi:type="uml:Comment" xmi:id="_1UqnG1CqEeW99N7PiPrPUQ">
+              <body>&#xD;
+ * @author Abdiel Jaramillo Ojedis&#xD;
+ *&#xD;
+ </body>
+            </ownedComment>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_1UqnIFCqEeW99N7PiPrPUQ" name="LOGGER" visibility="private" isLeaf="true" isStatic="true" type="_1UqnH1CqEeW99N7PiPrPUQ" isUnique="false"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_1UqnJVCqEeW99N7PiPrPUQ" name="context" visibility="private" type="_1UqnJFCqEeW99N7PiPrPUQ" isUnique="false"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_1UwtsFCqEeW99N7PiPrPUQ" name="start" visibility="public"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_1UwtsVCqEeW99N7PiPrPUQ" name="LoadApplicationContext" visibility="public"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_1UwtslCqEeW99N7PiPrPUQ" name="InitDriver" visibility="public"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_1Uwts1CqEeW99N7PiPrPUQ" name="InitDriverConsole" visibility="public"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_1UwttFCqEeW99N7PiPrPUQ" name="doTest" visibility="private"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_1UwttVCqEeW99N7PiPrPUQ" name="showPrompt" visibility="public"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_1UwttlCqEeW99N7PiPrPUQ" name="showHelp" visibility="public"/>
+            <ownedOperation xmi:type="uml:Operation" xmi:id="_1Uwtt1CqEeW99N7PiPrPUQ" name="setupContext" visibility="public">
+              <ownedParameter xmi:type="uml:Parameter" xmi:id="_1UwtuFCqEeW99N7PiPrPUQ" type="_1UqnJFCqEeW99N7PiPrPUQ" direction="return"/>
+            </ownedOperation>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Package" xmi:id="_1UwtuVCqEeW99N7PiPrPUQ" name="config">
+            <packagedElement xmi:type="uml:Class" xmi:id="_1UwtulCqEeW99N7PiPrPUQ" name="AppSettings" visibility="public">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_1Uwtu1CqEeW99N7PiPrPUQ">
+                <body>&#xD;
+ * @author Abdiel Jaramillo Ojedis&#xD;
+ *&#xD;
+ </body>
+              </ownedComment>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_1UwtvFCqEeW99N7PiPrPUQ" name="charset" visibility="private" isStatic="true" type="_1UqnF1CqEeW99N7PiPrPUQ" isUnique="false"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_1UwtvVCqEeW99N7PiPrPUQ" name="port" visibility="private" isStatic="true" type="_1UqnF1CqEeW99N7PiPrPUQ" isUnique="false"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_1UwtvlCqEeW99N7PiPrPUQ" name="encryptionAlgorithm" visibility="private" isStatic="true" type="_1UqnF1CqEeW99N7PiPrPUQ" isUnique="false"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_1Uwtv1CqEeW99N7PiPrPUQ" name="encryptionMode" visibility="private" isStatic="true" type="_1UqnF1CqEeW99N7PiPrPUQ" isUnique="false"/>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_1UwtwFCqEeW99N7PiPrPUQ" name="encryptionPadding" visibility="private" isStatic="true" type="_1UqnF1CqEeW99N7PiPrPUQ" isUnique="false"/>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_1UwtwVCqEeW99N7PiPrPUQ" name="getCharset" visibility="public" isStatic="true">
+                <ownedComment xmi:type="uml:Comment" xmi:id="_1UwtwlCqEeW99N7PiPrPUQ">
+                  <body>&#xD;
+   * @return the charset&#xD;
+   </body>
+                </ownedComment>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_1Uwtw1CqEeW99N7PiPrPUQ" type="_1UqnF1CqEeW99N7PiPrPUQ" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_1UwtxFCqEeW99N7PiPrPUQ" name="setCharset" visibility="public" isStatic="true">
+                <ownedComment xmi:type="uml:Comment" xmi:id="_1UwtxVCqEeW99N7PiPrPUQ">
+                  <body>&#xD;
+   * @param charset the charset to set&#xD;
+   </body>
+                </ownedComment>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_1UwtxlCqEeW99N7PiPrPUQ" name="_charset" type="_1UqnF1CqEeW99N7PiPrPUQ"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_1Uwtx1CqEeW99N7PiPrPUQ" name="getPort" visibility="public" isStatic="true">
+                <ownedComment xmi:type="uml:Comment" xmi:id="_1UwtyFCqEeW99N7PiPrPUQ">
+                  <body>&#xD;
+   * @return the port&#xD;
+   </body>
+                </ownedComment>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_1UwtyVCqEeW99N7PiPrPUQ" type="_1UqnF1CqEeW99N7PiPrPUQ" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_1UwtylCqEeW99N7PiPrPUQ" name="setPort" visibility="public" isStatic="true">
+                <ownedComment xmi:type="uml:Comment" xmi:id="_1Uwty1CqEeW99N7PiPrPUQ">
+                  <body>&#xD;
+   * @param port the port to set&#xD;
+   </body>
+                </ownedComment>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_1UwtzFCqEeW99N7PiPrPUQ" name="port" type="_1UqnF1CqEeW99N7PiPrPUQ"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_1UwtzVCqEeW99N7PiPrPUQ" name="getEncryptionAlgorithm" visibility="public" isStatic="true">
+                <ownedComment xmi:type="uml:Comment" xmi:id="_1UwtzlCqEeW99N7PiPrPUQ">
+                  <body>&#xD;
+   * @return the encryptionAlgorithm&#xD;
+   </body>
+                </ownedComment>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_1Uwtz1CqEeW99N7PiPrPUQ" type="_1UqnF1CqEeW99N7PiPrPUQ" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_1Uwt0FCqEeW99N7PiPrPUQ" name="setEncryptionAlgorithm" visibility="public" isStatic="true">
+                <ownedComment xmi:type="uml:Comment" xmi:id="_1Uwt0VCqEeW99N7PiPrPUQ">
+                  <body>&#xD;
+   * @param encryptionAlgorithm the encryptionAlgorithm to set&#xD;
+   </body>
+                </ownedComment>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_1Uwt0lCqEeW99N7PiPrPUQ" name="encryptionAlgorithm" type="_1UqnF1CqEeW99N7PiPrPUQ"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_1Uwt01CqEeW99N7PiPrPUQ" name="getEncryptionMode" visibility="public" isStatic="true">
+                <ownedComment xmi:type="uml:Comment" xmi:id="_1Uwt1FCqEeW99N7PiPrPUQ">
+                  <body>&#xD;
+   * @return the encryptionMode&#xD;
+   </body>
+                </ownedComment>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_1Uwt1VCqEeW99N7PiPrPUQ" type="_1UqnF1CqEeW99N7PiPrPUQ" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_1U20UFCqEeW99N7PiPrPUQ" name="setEncryptionMode" visibility="public" isStatic="true">
+                <ownedComment xmi:type="uml:Comment" xmi:id="_1U20UVCqEeW99N7PiPrPUQ">
+                  <body>&#xD;
+   * @param encryptionMode the encryptionMode to set&#xD;
+   </body>
+                </ownedComment>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_1U20UlCqEeW99N7PiPrPUQ" name="encryptionMode" type="_1UqnF1CqEeW99N7PiPrPUQ"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_1U20U1CqEeW99N7PiPrPUQ" name="getEncryptionPadding" visibility="public" isStatic="true">
+                <ownedComment xmi:type="uml:Comment" xmi:id="_1U20VFCqEeW99N7PiPrPUQ">
+                  <body>&#xD;
+   * @return the encryptionPadding&#xD;
+   </body>
+                </ownedComment>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_1U20VVCqEeW99N7PiPrPUQ" type="_1UqnF1CqEeW99N7PiPrPUQ" direction="return"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_1U20VlCqEeW99N7PiPrPUQ" name="setEncryptionPadding" visibility="public" isStatic="true">
+                <ownedComment xmi:type="uml:Comment" xmi:id="_1U20V1CqEeW99N7PiPrPUQ">
+                  <body>&#xD;
+   * @param encryptionPadding the encryptionPadding to set&#xD;
+   </body>
+                </ownedComment>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_1U20WFCqEeW99N7PiPrPUQ" name="encryptionPadding" type="_1UqnF1CqEeW99N7PiPrPUQ"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_1U20WVCqEeW99N7PiPrPUQ" name="print" visibility="public" isStatic="true"/>
+            </packagedElement>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Package" xmi:id="_1U20WlCqEeW99N7PiPrPUQ" name="encode">
+            <packagedElement xmi:type="uml:Interface" xmi:id="_1U20W1CqEeW99N7PiPrPUQ" name="IEncodeService" visibility="public">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_1U20XFCqEeW99N7PiPrPUQ">
+                <body>&#xD;
+ * @author Abdiel&#xD;
+ *&#xD;
+ </body>
+              </ownedComment>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_1U20YFCqEeW99N7PiPrPUQ" name="encode" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_1U20YVCqEeW99N7PiPrPUQ" type="_1UqnF1CqEeW99N7PiPrPUQ" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_1U20YlCqEeW99N7PiPrPUQ" name="rawBytes" type="_1U20X1CqEeW99N7PiPrPUQ">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1U20Y1CqEeW99N7PiPrPUQ"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1U20ZFCqEeW99N7PiPrPUQ" value="*"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_1U20ZVCqEeW99N7PiPrPUQ" name="decode" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_1U20ZlCqEeW99N7PiPrPUQ" type="_1U20X1CqEeW99N7PiPrPUQ" direction="return">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1U20Z1CqEeW99N7PiPrPUQ"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1U20aFCqEeW99N7PiPrPUQ" value="*"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_1U20aVCqEeW99N7PiPrPUQ" name="rawBytes" type="_1U20X1CqEeW99N7PiPrPUQ">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1U20alCqEeW99N7PiPrPUQ"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1U20a1CqEeW99N7PiPrPUQ" value="*"/>
+                </ownedParameter>
+              </ownedOperation>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class" xmi:id="_1U868FCqEeW99N7PiPrPUQ" name="EncodeServiceHex" visibility="public">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_1U868VCqEeW99N7PiPrPUQ">
+                <body>&#xD;
+ * @author Abdiel Jaramillo Ojedis&#xD;
+ *&#xD;
+ </body>
+              </ownedComment>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_1U8681CqEeW99N7PiPrPUQ" name="LOGGER" visibility="private" isLeaf="true" isStatic="true" type="_1UqnH1CqEeW99N7PiPrPUQ" isUnique="false"/>
+              <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_1U868lCqEeW99N7PiPrPUQ" name="EncodeServiceHex implements IEncodeService" client="_1U868FCqEeW99N7PiPrPUQ" supplier="_1U20W1CqEeW99N7PiPrPUQ" contract="_1U20W1CqEeW99N7PiPrPUQ"/>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_1U869FCqEeW99N7PiPrPUQ" name="encode" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_1U869VCqEeW99N7PiPrPUQ" type="_1UqnF1CqEeW99N7PiPrPUQ" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_1U869lCqEeW99N7PiPrPUQ" name="rawBytes" type="_1U20X1CqEeW99N7PiPrPUQ">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1U8691CqEeW99N7PiPrPUQ"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1U86-FCqEeW99N7PiPrPUQ" value="*"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_1U86-VCqEeW99N7PiPrPUQ" name="decode" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_1U86-lCqEeW99N7PiPrPUQ" type="_1U20X1CqEeW99N7PiPrPUQ" direction="return">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1U86-1CqEeW99N7PiPrPUQ"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1U86_FCqEeW99N7PiPrPUQ" value="*"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_1U86_VCqEeW99N7PiPrPUQ" name="rawBytes" type="_1U20X1CqEeW99N7PiPrPUQ">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_1U86_lCqEeW99N7PiPrPUQ"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_1U86_1CqEeW99N7PiPrPUQ" value="*"/>
+                </ownedParameter>
+              </ownedOperation>
+            </packagedElement>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Package" xmi:id="_9b_6kFCqEeW99N7PiPrPUQ" name="utils">
+            <packagedElement xmi:type="uml:Class" xmi:id="_9b_6kVCqEeW99N7PiPrPUQ" name="TestService" visibility="public">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_9b_6klCqEeW99N7PiPrPUQ">
+                <body>&#xD;
+ * @author Abdiel Jaramillo Ojedis&#xD;
+ *&#xD;
+ </body>
+              </ownedComment>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_9b_6k1CqEeW99N7PiPrPUQ" name="delay" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_9b_6lFCqEeW99N7PiPrPUQ" type="_1U20X1CqEeW99N7PiPrPUQ" direction="return">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9b_6lVCqEeW99N7PiPrPUQ"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9b_6llCqEeW99N7PiPrPUQ" value="*"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_9b_6l1CqEeW99N7PiPrPUQ" name="message" type="_1U20X1CqEeW99N7PiPrPUQ">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_9b_6mFCqEeW99N7PiPrPUQ"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_9b_6mVCqEeW99N7PiPrPUQ" value="*"/>
+                </ownedParameter>
+              </ownedOperation>
+            </packagedElement>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Package" xmi:id="_kHt9cFCrEeW99N7PiPrPUQ" name="processor">
+            <packagedElement xmi:type="uml:Interface" xmi:id="_kH0EEFCrEeW99N7PiPrPUQ" name="IResponseProcessor" visibility="public">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_kH0EEVCrEeW99N7PiPrPUQ">
+                <body>&#xD;
+ * @author Abdiel Jaramillo Ojedis&#xD;
+ *&#xD;
+ </body>
+              </ownedComment>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_kH0EFFCrEeW99N7PiPrPUQ" name="process" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_kH0EFVCrEeW99N7PiPrPUQ" type="_1UqnF1CqEeW99N7PiPrPUQ" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_kH0EFlCrEeW99N7PiPrPUQ" name="hmResponse" type="_kH0EE1CrEeW99N7PiPrPUQ"/>
+              </ownedOperation>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class" xmi:id="_kH0EF1CrEeW99N7PiPrPUQ" name="SpResponseProcessor" visibility="public">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_kH0EGFCrEeW99N7PiPrPUQ">
+                <body>&#xD;
+ * @author Abdiel Jaramillo Ojedis&#xD;
+ *&#xD;
+ </body>
+              </ownedComment>
+              <ownedAttribute xmi:type="uml:Property" xmi:id="_kH0EGVCrEeW99N7PiPrPUQ" name="LOGGER" visibility="private" isLeaf="true" isStatic="true" type="_1UqnH1CqEeW99N7PiPrPUQ" isUnique="false"/>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_kH0EGlCrEeW99N7PiPrPUQ" name="process" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_kH0EG1CrEeW99N7PiPrPUQ" type="_1UqnF1CqEeW99N7PiPrPUQ" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_kH0EHFCrEeW99N7PiPrPUQ" name="hmResponse" type="_kH0EE1CrEeW99N7PiPrPUQ"/>
+              </ownedOperation>
+            </packagedElement>
+          </packagedElement>
+          <packagedElement xmi:type="uml:Package" xmi:id="_CobtwFCsEeW99N7PiPrPUQ" name="encryption">
+            <packagedElement xmi:type="uml:Interface" xmi:id="_CobtwVCsEeW99N7PiPrPUQ" name="IEncryptionService" visibility="public">
+              <ownedComment xmi:type="uml:Comment" xmi:id="_CobtwlCsEeW99N7PiPrPUQ">
+                <body>&#xD;
+ * @author Abdiel Jaramillp Ojedis&#xD;
+ *&#xD;
+ </body>
+              </ownedComment>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_Cobtw1CsEeW99N7PiPrPUQ" name="keyGen" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_CobtxFCsEeW99N7PiPrPUQ" name="algorithm" type="_1UqnF1CqEeW99N7PiPrPUQ"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_CobtxVCsEeW99N7PiPrPUQ" name="getSecretKey" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_CobtxlCsEeW99N7PiPrPUQ" type="_1VDBlFCqEeW99N7PiPrPUQ" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Cobtx1CsEeW99N7PiPrPUQ" name="algorithm" type="_1UqnF1CqEeW99N7PiPrPUQ"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_CobtyFCsEeW99N7PiPrPUQ" name="fileName" type="_1UqnF1CqEeW99N7PiPrPUQ"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_CobtyVCsEeW99N7PiPrPUQ" name="encrypt" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_CobtylCsEeW99N7PiPrPUQ" type="_1U20X1CqEeW99N7PiPrPUQ" direction="return">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Cobty1CsEeW99N7PiPrPUQ"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_CobtzFCsEeW99N7PiPrPUQ" value="*"/>
+                </ownedParameter>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_CobtzVCsEeW99N7PiPrPUQ" name="textToEncrypt" type="_1UqnF1CqEeW99N7PiPrPUQ"/>
+              </ownedOperation>
+              <ownedOperation xmi:type="uml:Operation" xmi:id="_CobtzlCsEeW99N7PiPrPUQ" name="decrypt" visibility="public">
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Cobtz1CsEeW99N7PiPrPUQ" type="_1UqnF1CqEeW99N7PiPrPUQ" direction="return"/>
+                <ownedParameter xmi:type="uml:Parameter" xmi:id="_Cobt0FCsEeW99N7PiPrPUQ" name="textEncrypted" type="_1U20X1CqEeW99N7PiPrPUQ">
+                  <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Cobt0VCsEeW99N7PiPrPUQ"/>
+                  <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Cobt0lCsEeW99N7PiPrPUQ" value="*"/>
+                </ownedParameter>
+              </ownedOperation>
+            </packagedElement>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_1UqnHFCqEeW99N7PiPrPUQ" name="org">
+      <packagedElement xmi:type="uml:Package" xmi:id="_1UqnHVCqEeW99N7PiPrPUQ" name="apache">
+        <packagedElement xmi:type="uml:Package" xmi:id="_1UqnHlCqEeW99N7PiPrPUQ" name="log4j">
+          <packagedElement xmi:type="uml:Class" xmi:id="_1UqnH1CqEeW99N7PiPrPUQ" name="Logger"/>
+        </packagedElement>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_1UqnIVCqEeW99N7PiPrPUQ" name="springframework">
+        <packagedElement xmi:type="uml:Package" xmi:id="_1UqnIlCqEeW99N7PiPrPUQ" name="context">
+          <packagedElement xmi:type="uml:Package" xmi:id="_1UqnI1CqEeW99N7PiPrPUQ" name="support">
+            <packagedElement xmi:type="uml:Class" xmi:id="_1UqnJFCqEeW99N7PiPrPUQ" name="GenericXmlApplicationContext"/>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_1VDBklCqEeW99N7PiPrPUQ" name="javax">
+      <packagedElement xmi:type="uml:Package" xmi:id="_1VDBk1CqEeW99N7PiPrPUQ" name="crypto">
+        <packagedElement xmi:type="uml:Class" xmi:id="_1VDBlFCqEeW99N7PiPrPUQ" name="SecretKey"/>
+      </packagedElement>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Model" xmi:id="_1UqnFFCqEeW99N7PiPrPUQ" name="java">
+    <packagedElement xmi:type="uml:Package" xmi:id="_1UqnFVCqEeW99N7PiPrPUQ" name="java">
+      <packagedElement xmi:type="uml:Package" xmi:id="_1UqnFlCqEeW99N7PiPrPUQ" name="lang">
+        <packagedElement xmi:type="uml:Class" xmi:id="_1UqnF1CqEeW99N7PiPrPUQ" name="String"/>
+      </packagedElement>
+      <packagedElement xmi:type="uml:Package" xmi:id="_kH0EElCrEeW99N7PiPrPUQ" name="util">
+        <packagedElement xmi:type="uml:Class" xmi:id="_kH0EE1CrEeW99N7PiPrPUQ" name="LinkedHashMap"/>
+      </packagedElement>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Model" xmi:id="_1U20XVCqEeW99N7PiPrPUQ" name="datatype">
+    <packagedElement xmi:type="uml:Package" xmi:id="_1U20XlCqEeW99N7PiPrPUQ" name="datatype">
+      <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_1U20X1CqEeW99N7PiPrPUQ" name="Byte"/>
+    </packagedElement>
+  </packagedElement>
+</uml:Model>
