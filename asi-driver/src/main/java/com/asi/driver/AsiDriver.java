@@ -12,6 +12,7 @@ import org.apache.log4j.Logger;
 import org.springframework.context.support.GenericXmlApplicationContext;
 import org.springframework.core.env.MapPropertySource;
 
+import com.asi.driver.config.AppSettings;
 import com.asi.driver.encryption.EncryptionServiceDES;
 
 /**
@@ -39,6 +40,9 @@ public class AsiDriver
   {
     context = setupContext();  
     context.registerShutdownHook();
+
+    AppSettings.print();
+    
   }
   
   public void InitDriver()

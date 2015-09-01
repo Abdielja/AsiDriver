@@ -24,7 +24,10 @@
 	
 	<bean id="appSettings" class="com.asi.driver.config.AppSettings"> 
 	  <property name="charset" value="${tcp.charset}"/> 
-	  <property name="port" value="${tcp.port}"/> 
+	  <property name="port" value="${tcp.port}"/>
+	  <property name="encryptionAlgorithm" value="${encryption.algorithm}"/> 
+	  <property name="encryptionMode" value="${encryption.operation-mode}"/> 
+	  <property name="encryptionPadding" value="${encryption.padding}"/> 
 	</bean>
 	
 	<!-- ***** END: SCII Application Settings Bean ***** -->

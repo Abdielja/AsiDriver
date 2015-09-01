@@ -10,6 +10,8 @@ import javax.xml.bind.DatatypeConverter;
 import org.apache.log4j.Logger;
 import org.springframework.integration.annotation.Transformer;
 
+import com.asi.driver.config.AppSettings;
+
 /**
  * @author Abdiel Jaramillo Ojedis
  *
@@ -42,7 +44,7 @@ public class EncodeServiceHex implements IEncodeService
     
     try
     {
-      hexString = new String(rawBytes, "ISO-8859-15");
+      hexString = new String(rawBytes, AppSettings.getCharset());
       if(hexString.charAt(hexString.length()-1) == '\r')
       {
         String tempString = hexString.substring(0, hexString.length()-1 );

@@ -24,6 +24,8 @@ import javax.crypto.spec.DESKeySpec;
 import org.apache.log4j.Logger;
 import org.springframework.integration.annotation.Transformer;
 
+import com.asi.driver.config.AppSettings;
+
 public class EncryptionServiceDES implements IEncryptionService
 {
 
@@ -116,7 +118,7 @@ public class EncryptionServiceDES implements IEncryptionService
     try
     {
       
-      bytesToEncrypt = stringToEncrypt.getBytes("ISO-8859-15");
+      bytesToEncrypt = stringToEncrypt.getBytes(AppSettings.getCharset());
       
       // Get SecretKey
       SecretKey key = getSecretKey("DES", "keyFile");
@@ -184,8 +186,8 @@ public class EncryptionServiceDES implements IEncryptionService
       // Decrypt the text
       textDecrypted = cipher.doFinal(textEncrypted);
     
-      stringDecrypted = new String(textDecrypted, "ISO-8859-15");
-      //System.out.println("Text Decrypted : " + new String(textDecrypted, "ISO-8859-15"));
+      stringDecrypted = new String(textDecrypted, AppSettings.getCharset());
+      //System.out.println("Text Decrypted : " + new String(textDecrypted, AppSettings.getCharset()));
   
     } 
     catch (NoSuchAlgorithmException e)

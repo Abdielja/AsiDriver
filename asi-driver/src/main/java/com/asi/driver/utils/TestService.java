@@ -5,6 +5,8 @@ package com.asi.driver.utils;
 
 import java.io.UnsupportedEncodingException;
 
+import com.asi.driver.config.AppSettings;
+
 /**
  * @author Abdiel Jaramillo Ojedis
  *
@@ -29,7 +31,7 @@ public class TestService
     try
     {
       //System.out.println("Received message: (bytes)" + message);
-      //System.out.println("Received message: (text)" + new String(message, "ISO-8859-15"));
+      //System.out.println("Received message: (text)" + new String(message, AppSettings.getCharset()));
     } 
     catch (UnsupportedEncodingException e1)
     {
@@ -57,7 +59,7 @@ public class TestService
     
     try
     {
-      bytesProcessed = textProcessed.getBytes("ISO-8859-15");
+      bytesProcessed = textProcessed.getBytes(AppSettings.getCharset());
     } 
     catch (UnsupportedEncodingException e)
     {
