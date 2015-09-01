@@ -26,10 +26,10 @@ import org.springframework.integration.annotation.Transformer;
 
 import com.asi.driver.config.AppSettings;
 
-public class EncryptionServiceDES implements IEncryptionService
+public class EncryptionService implements IEncryptionService
 {
 
-  private static final Logger LOGGER = Logger.getLogger(EncryptionServiceDES.class);
+  private static final Logger LOGGER = Logger.getLogger(EncryptionService.class);
    
   @Override
   public void keyGen(String algorithm) throws NoSuchAlgorithmException
