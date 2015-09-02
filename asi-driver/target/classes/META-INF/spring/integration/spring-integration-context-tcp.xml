@@ -126,7 +126,7 @@
 
 	<!-- ***** Encryption Service ***** -->
 	
- 	<bean id="encryptionService" class="com.asi.driver.encryption.EncryptionServiceDES" />
+ 	<bean id="encryptionService" class="com.asi.driver.encryption.EncryptionService" />
 
 	<!-- ***** Processor Service ***** -->
 	

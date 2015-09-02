@@ -13,7 +13,7 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 import org.springframework.core.env.MapPropertySource;
 
 import com.asi.driver.config.AppSettings;
-import com.asi.driver.encryption.EncryptionServiceDES;
+import com.asi.driver.encryption.EncryptionService;
 
 /**
  * @author Abdiel Jaramillo Ojedis
@@ -94,7 +94,7 @@ public class AsiDriver
       }
       else if ("keygen".equals(input.trim()))
       {
-        EncryptionServiceDES es = (EncryptionServiceDES) context.getBean(EncryptionServiceDES.class);
+        EncryptionService es = (EncryptionService) context.getBean(EncryptionService.class);
         try
         {
           es.keyGen("DES");

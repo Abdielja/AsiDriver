@@ -7,8 +7,6 @@ import java.util.LinkedHashMap;
 
 import org.apache.log4j.Logger;
 
-import com.asi.driver.encryption.EncryptionServiceDES;
-
 /**
  * @author Abdiel Jaramillo Ojedis
  *
@@ -23,7 +21,7 @@ public class SpResponseProcessor
    * *******************************************/
   
   @SuppressWarnings("unused")
-  private static final Logger LOGGER = Logger.getLogger(EncryptionServiceDES.class);
+  private static final Logger LOGGER = Logger.getLogger(SpResponseProcessor.class);
  
   /**
    * 

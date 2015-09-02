@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_R0HVIFCpEeW99N7PiPrPUQ" name="RootElement">
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_R0HVIFCpEeW99N7PiPrPUQ" name="RootElement">
   <packagedElement xmi:type="uml:Model" xmi:id="_1UkgcFCqEeW99N7PiPrPUQ" name="src">
     <packagedElement xmi:type="uml:Package" xmi:id="_1UkgcVCqEeW99N7PiPrPUQ" name="com">
       <packagedElement xmi:type="uml:Package" xmi:id="_1UkgclCqEeW99N7PiPrPUQ" name="asi">
@@ -14,7 +14,7 @@
  *
  </body>
             </ownedComment>
-            <ownedAttribute xmi:type="uml:Property" xmi:id="_1UqnE1CqEeW99N7PiPrPUQ" name="asiDriver" visibility="private" isLeaf="true" type="_1UqnElCqEeW99N7PiPrPUQ" isUnique="false"/>
+            <ownedAttribute xmi:type="uml:Property" xmi:id="_1UqnE1CqEeW99N7PiPrPUQ" name="asiDriver" visibility="private" isLeaf="true" type="_1UqnElCqEeW99N7PiPrPUQ" isUnique="false" aggregation="composite" association="_gkRVwFC0EeW99N7PiPrPUQ"/>
             <ownedOperation xmi:type="uml:Operation" xmi:id="_1UqnGFCqEeW99N7PiPrPUQ" name="main" visibility="public" isStatic="true">
               <ownedComment xmi:type="uml:Comment" xmi:id="_1UqnGVCqEeW99N7PiPrPUQ">
                 <body>
@@ -178,6 +178,7 @@
               </ownedComment>
               <ownedAttribute xmi:type="uml:Property" xmi:id="_1U8681CqEeW99N7PiPrPUQ" name="LOGGER" visibility="private" isLeaf="true" isStatic="true" type="_1UqnH1CqEeW99N7PiPrPUQ" isUnique="false"/>
               <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_1U868lCqEeW99N7PiPrPUQ" name="EncodeServiceHex implements IEncodeService" client="_1U868FCqEeW99N7PiPrPUQ" supplier="_1U20W1CqEeW99N7PiPrPUQ" contract="_1U20W1CqEeW99N7PiPrPUQ"/>
+              <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_yAT5YFC1EeW99N7PiPrPUQ" client="_1U868FCqEeW99N7PiPrPUQ" supplier="_1U20W1CqEeW99N7PiPrPUQ" contract="_1U20W1CqEeW99N7PiPrPUQ"/>
               <ownedOperation xmi:type="uml:Operation" xmi:id="_1U869FCqEeW99N7PiPrPUQ" name="encode" visibility="public">
                 <ownedParameter xmi:type="uml:Parameter" xmi:id="_1U869VCqEeW99N7PiPrPUQ" type="_1UqnF1CqEeW99N7PiPrPUQ" direction="return"/>
                 <ownedParameter xmi:type="uml:Parameter" xmi:id="_1U869lCqEeW99N7PiPrPUQ" name="rawBytes" type="_1U20X1CqEeW99N7PiPrPUQ">
@@ -238,6 +239,7 @@
  </body>
               </ownedComment>
               <ownedAttribute xmi:type="uml:Property" xmi:id="_kH0EGVCrEeW99N7PiPrPUQ" name="LOGGER" visibility="private" isLeaf="true" isStatic="true" type="_1UqnH1CqEeW99N7PiPrPUQ" isUnique="false"/>
+              <interfaceRealization xmi:type="uml:InterfaceRealization" xmi:id="_o7JEoFC1EeW99N7PiPrPUQ" client="_kH0EF1CrEeW99N7PiPrPUQ" supplier="_kH0EEFCrEeW99N7PiPrPUQ" contract="_kH0EEFCrEeW99N7PiPrPUQ"/>
               <ownedOperation xmi:type="uml:Operation" xmi:id="_kH0EGlCrEeW99N7PiPrPUQ" name="process" visibility="public">
                 <ownedParameter xmi:type="uml:Parameter" xmi:id="_kH0EG1CrEeW99N7PiPrPUQ" type="_1UqnF1CqEeW99N7PiPrPUQ" direction="return"/>
                 <ownedParameter xmi:type="uml:Parameter" xmi:id="_kH0EHFCrEeW99N7PiPrPUQ" name="hmResponse" type="_kH0EE1CrEeW99N7PiPrPUQ"/>
@@ -276,6 +278,12 @@
               </ownedOperation>
             </packagedElement>
           </packagedElement>
+          <packagedElement xmi:type="uml:Association" xmi:id="_gkRVwFC0EeW99N7PiPrPUQ" name="" memberEnd="_1UqnE1CqEeW99N7PiPrPUQ _gkv24FC0EeW99N7PiPrPUQ">
+            <ownedEnd xmi:type="uml:Property" xmi:id="_gkv24FC0EeW99N7PiPrPUQ" name="main" type="_1UqnEFCqEeW99N7PiPrPUQ" association="_gkRVwFC0EeW99N7PiPrPUQ">
+              <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_gkv24VC0EeW99N7PiPrPUQ"/>
+              <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_gkv24lC0EeW99N7PiPrPUQ" value="1"/>
+            </ownedEnd>
+          </packagedElement>
         </packagedElement>
       </packagedElement>
     </packagedElement>
@@ -313,5 +321,27 @@
     <packagedElement xmi:type="uml:Package" xmi:id="_1U20XlCqEeW99N7PiPrPUQ" name="datatype">
       <packagedElement xmi:type="uml:PrimitiveType" xmi:id="_1U20X1CqEeW99N7PiPrPUQ" name="Byte"/>
     </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interaction" xmi:id="_xYVd8FC2EeW99N7PiPrPUQ" name="Main Interaction">
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_3F9vIVC2EeW99N7PiPrPUQ" name="" type="_1UqnEFCqEeW99N7PiPrPUQ"/>
+    <ownedAttribute xmi:type="uml:Property" xmi:id="_34mtAVC2EeW99N7PiPrPUQ" name="" type="_1UqnElCqEeW99N7PiPrPUQ"/>
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_3F9vIFC2EeW99N7PiPrPUQ" name="" represents="_3F9vIVC2EeW99N7PiPrPUQ" coveredBy="_-yYoQFC2EeW99N7PiPrPUQ"/>
+    <lifeline xmi:type="uml:Lifeline" xmi:id="_34mtAFC2EeW99N7PiPrPUQ" name="" represents="_34mtAVC2EeW99N7PiPrPUQ" coveredBy="_-yYoQVC2EeW99N7PiPrPUQ"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_-yYoQFC2EeW99N7PiPrPUQ" name="start_MessageSend" covered="_3F9vIFC2EeW99N7PiPrPUQ" message="_-x6HIFC2EeW99N7PiPrPUQ"/>
+    <fragment xmi:type="uml:MessageOccurrenceSpecification" xmi:id="_-yYoQVC2EeW99N7PiPrPUQ" name="start_MessageRecv" covered="_34mtAFC2EeW99N7PiPrPUQ" message="_-x6HIFC2EeW99N7PiPrPUQ"/>
+    <message xmi:type="uml:Message" xmi:id="_-x6HIFC2EeW99N7PiPrPUQ" name="start_Message" receiveEvent="_-yYoQVC2EeW99N7PiPrPUQ" sendEvent="_-yYoQFC2EeW99N7PiPrPUQ" signature="_1UwtsFCqEeW99N7PiPrPUQ"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Activity" xmi:id="_j1MzoFC3EeW99N7PiPrPUQ" name="Message Received">
+    <ownedBehavior xmi:type="uml:Activity" xmi:id="_xT6bgFC3EeW99N7PiPrPUQ" name="Decode Message"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="_FuJv0FEgEeW99N7PiPrPUQ" memberEnd="_FuoQ8FEgEeW99N7PiPrPUQ _FuoQ8VEgEeW99N7PiPrPUQ" navigableOwnedEnd="_FuoQ8FEgEeW99N7PiPrPUQ">
+    <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_FuiKUFEgEeW99N7PiPrPUQ" source="org.eclipse.papyrus">
+      <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_FuiKUVEgEeW99N7PiPrPUQ" key="nature" value="UML_Nature"/>
+    </eAnnotations>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_FuoQ8FEgEeW99N7PiPrPUQ" name="appsettings" type="_1UwtulCqEeW99N7PiPrPUQ" association="_FuJv0FEgEeW99N7PiPrPUQ"/>
+    <ownedEnd xmi:type="uml:Property" xmi:id="_FuoQ8VEgEeW99N7PiPrPUQ" type="_1UqnElCqEeW99N7PiPrPUQ" association="_FuJv0FEgEeW99N7PiPrPUQ">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_xJarAFEgEeW99N7PiPrPUQ" value="1"/>
+      <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_xJgxoFEgEeW99N7PiPrPUQ" value="1"/>
+    </ownedEnd>
   </packagedElement>
 </uml:Model>
