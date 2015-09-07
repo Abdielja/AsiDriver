@@ -1,1 +1,95 @@
-2015-09-01 19:32:04,901 WARN  [TcpNetServerConnectionFactory] - Server Socket closed
+2015-09-07 09:35:35,372 WARN  [CallMetaDataContext] - Unable to locate the corresponding parameter value for 'Pv_CodigoError' within the parameter values provided: []
+2015-09-07 09:35:36,233 ERROR [TcpNetConnection] - Exception sending message: GenericMessage [payload=byte[657], headers={ip_address=127.0.0.1, id=d78e463e-63c0-06c4-669a-23eff3525a6d, ip_hostname=127.0.0.1, ip_tcp_remotePort=49438, ip_connectionId=127.0.0.1:49438:1963:943ee049-9d82-47ae-8914-a23c2e082286, timestamp=1441636533052}]
+org.springframework.messaging.MessageHandlingException: error occurred in message handler [org.springframework.integration.jdbc.StoredProcOutboundGateway#0]; nested exception is org.springframework.jdbc.BadSqlGrammarException: CallableStatementCallback; bad SQL grammar [{call IS_K_PROTOCOLO.IS_P_AUTORIZAR_MSG(?, ?, ?)}]; nested exception is java.sql.SQLException: ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'IS_K_PROTOCOLO.IS_P_AUTORIZAR_MSG' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+
+	at org.springframework.integration.handler.AbstractMessageHandler.handleMessage(AbstractMessageHandler.java:84)
+	at org.springframework.integration.dispatcher.AbstractDispatcher.tryOptimizedDispatch(AbstractDispatcher.java:116)
+	at org.springframework.integration.dispatcher.UnicastingDispatcher.doDispatch(UnicastingDispatcher.java:101)
+	at org.springframework.integration.dispatcher.UnicastingDispatcher.dispatch(UnicastingDispatcher.java:97)
+	at org.springframework.integration.channel.AbstractSubscribableChannel.doSend(AbstractSubscribableChannel.java:77)
+	at org.springframework.integration.channel.AbstractMessageChannel.send(AbstractMessageChannel.java:287)
+	at org.springframework.integration.channel.AbstractMessageChannel.send(AbstractMessageChannel.java:245)
+	at org.springframework.messaging.core.GenericMessagingTemplate.doSend(GenericMessagingTemplate.java:115)
+	at org.springframework.messaging.core.GenericMessagingTemplate.doSend(GenericMessagingTemplate.java:45)
+	at org.springframework.messaging.core.AbstractMessageSendingTemplate.send(AbstractMessageSendingTemplate.java:95)
+	at org.springframework.integration.handler.AbstractMessageProducingHandler.sendOutput(AbstractMessageProducingHandler.java:231)
+	at org.springframework.integration.handler.AbstractMessageProducingHandler.produceOutput(AbstractMessageProducingHandler.java:154)
+	at org.springframework.integration.handler.AbstractMessageProducingHandler.sendOutputs(AbstractMessageProducingHandler.java:102)
+	at org.springframework.integration.handler.AbstractReplyProducingMessageHandler.handleMessageInternal(AbstractReplyProducingMessageHandler.java:105)
+	at org.springframework.integration.handler.AbstractMessageHandler.handleMessage(AbstractMessageHandler.java:78)
+	at org.springframework.integration.dispatcher.AbstractDispatcher.tryOptimizedDispatch(AbstractDispatcher.java:116)
+	at org.springframework.integration.dispatcher.UnicastingDispatcher.doDispatch(UnicastingDispatcher.java:101)
+	at org.springframework.integration.dispatcher.UnicastingDispatcher.dispatch(UnicastingDispatcher.java:97)
+	at org.springframework.integration.channel.AbstractSubscribableChannel.doSend(AbstractSubscribableChannel.java:77)
+	at org.springframework.integration.channel.AbstractMessageChannel.send(AbstractMessageChannel.java:287)
+	at org.springframework.integration.channel.AbstractMessageChannel.send(AbstractMessageChannel.java:245)
+	at org.springframework.messaging.core.GenericMessagingTemplate.doSend(GenericMessagingTemplate.java:115)
+	at org.springframework.messaging.core.GenericMessagingTemplate.doSend(GenericMessagingTemplate.java:45)
+	at org.springframework.messaging.core.AbstractMessageSendingTemplate.send(AbstractMessageSendingTemplate.java:95)
+	at org.springframework.integration.handler.AbstractMessageProducingHandler.sendOutput(AbstractMessageProducingHandler.java:231)
+	at org.springframework.integration.handler.AbstractMessageProducingHandler.produceOutput(AbstractMessageProducingHandler.java:154)
+	at org.springframework.integration.handler.AbstractMessageProducingHandler.sendOutputs(AbstractMessageProducingHandler.java:102)
+	at org.springframework.integration.handler.AbstractReplyProducingMessageHandler.handleMessageInternal(AbstractReplyProducingMessageHandler.java:105)
+	at org.springframework.integration.handler.AbstractMessageHandler.handleMessage(AbstractMessageHandler.java:78)
+	at org.springframework.integration.dispatcher.AbstractDispatcher.tryOptimizedDispatch(AbstractDispatcher.java:116)
+	at org.springframework.integration.dispatcher.UnicastingDispatcher.doDispatch(UnicastingDispatcher.java:101)
+	at org.springframework.integration.dispatcher.UnicastingDispatcher.dispatch(UnicastingDispatcher.java:97)
+	at org.springframework.integration.channel.AbstractSubscribableChannel.doSend(AbstractSubscribableChannel.java:77)
+	at org.springframework.integration.channel.AbstractMessageChannel.send(AbstractMessageChannel.java:287)
+	at org.springframework.messaging.core.GenericMessagingTemplate.doSend(GenericMessagingTemplate.java:115)
+	at org.springframework.messaging.core.GenericMessagingTemplate.doSendAndReceive(GenericMessagingTemplate.java:150)
+	at org.springframework.messaging.core.GenericMessagingTemplate.doSendAndReceive(GenericMessagingTemplate.java:45)
+	at org.springframework.messaging.core.AbstractMessagingTemplate.sendAndReceive(AbstractMessagingTemplate.java:42)
+	at org.springframework.integration.gateway.MessagingGatewaySupport.doSendAndReceive(MessagingGatewaySupport.java:331)
+	at org.springframework.integration.gateway.MessagingGatewaySupport.sendAndReceiveMessage(MessagingGatewaySupport.java:302)
+	at org.springframework.integration.ip.tcp.TcpInboundGateway.doOnMessage(TcpInboundGateway.java:99)
+	at org.springframework.integration.ip.tcp.TcpInboundGateway.onMessage(TcpInboundGateway.java:89)
+	at org.springframework.integration.ip.tcp.connection.TcpNetConnection.run(TcpNetConnection.java:170)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.springframework.jdbc.BadSqlGrammarException: CallableStatementCallback; bad SQL grammar [{call IS_K_PROTOCOLO.IS_P_AUTORIZAR_MSG(?, ?, ?)}]; nested exception is java.sql.SQLException: ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'IS_K_PROTOCOLO.IS_P_AUTORIZAR_MSG' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:231)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:73)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:1137)
+	at org.springframework.jdbc.core.JdbcTemplate.call(JdbcTemplate.java:1173)
+	at org.springframework.jdbc.core.simple.AbstractJdbcCall.executeCallInternal(AbstractJdbcCall.java:388)
+	at org.springframework.jdbc.core.simple.AbstractJdbcCall.doExecute(AbstractJdbcCall.java:348)
+	at org.springframework.jdbc.core.simple.SimpleJdbcCall.execute(SimpleJdbcCall.java:190)
+	at org.springframework.integration.jdbc.StoredProcExecutor.executeStoredProcedureInternal(StoredProcExecutor.java:328)
+	at org.springframework.integration.jdbc.StoredProcExecutor.executeStoredProcedure(StoredProcExecutor.java:297)
+	at org.springframework.integration.jdbc.StoredProcOutboundGateway.handleRequestMessage(StoredProcOutboundGateway.java:60)
+	at org.springframework.integration.handler.AbstractReplyProducingMessageHandler.handleMessageInternal(AbstractReplyProducingMessageHandler.java:99)
+	at org.springframework.integration.handler.AbstractMessageHandler.handleMessage(AbstractMessageHandler.java:78)
+	... 45 more
+Caused by: java.sql.SQLException: ORA-06550: línea 1, columna 7:
+PLS-00201: el identificador 'IS_K_PROTOCOLO.IS_P_AUTORIZAR_MSG' se debe declarar
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:445)
+	at oracle.jdbc.driver.T4CTTIoer.processError(T4CTTIoer.java:396)
+	at oracle.jdbc.driver.T4C8Oall.processError(T4C8Oall.java:879)
+	at oracle.jdbc.driver.T4CTTIfun.receive(T4CTTIfun.java:450)
+	at oracle.jdbc.driver.T4CTTIfun.doRPC(T4CTTIfun.java:192)
+	at oracle.jdbc.driver.T4C8Oall.doOALL(T4C8Oall.java:531)
+	at oracle.jdbc.driver.T4CCallableStatement.doOall8(T4CCallableStatement.java:204)
+	at oracle.jdbc.driver.T4CCallableStatement.executeForRows(T4CCallableStatement.java:1041)
+	at oracle.jdbc.driver.OracleStatement.doExecuteWithTimeout(OracleStatement.java:1329)
+	at oracle.jdbc.driver.OraclePreparedStatement.executeInternal(OraclePreparedStatement.java:3584)
+	at oracle.jdbc.driver.OraclePreparedStatement.execute(OraclePreparedStatement.java:3685)
+	at oracle.jdbc.driver.OracleCallableStatement.execute(OracleCallableStatement.java:4714)
+	at oracle.jdbc.driver.OraclePreparedStatementWrapper.execute(OraclePreparedStatementWrapper.java:1376)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at org.apache.commons.dbcp.DelegatingPreparedStatement.execute(DelegatingPreparedStatement.java:172)
+	at org.springframework.jdbc.core.JdbcTemplate$6.doInCallableStatement(JdbcTemplate.java:1176)
+	at org.springframework.jdbc.core.JdbcTemplate$6.doInCallableStatement(JdbcTemplate.java:1173)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:1121)
+	... 54 more

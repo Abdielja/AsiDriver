@@ -69,13 +69,15 @@
  	<int:channel id="encoded-response"></int:channel>
 
 	<!-- Connection Factory -->
- 	<int-ip:tcp-connection-factory id="server" type="server"
- 		port="${availableServerSocket}" deserializer="javaDeserializer"
- 		serializer="javaSerializer" single-use="true" />
+	<int-ip:tcp-connection-factory id="server" type="server"
+		port="${availableServerSocket}" deserializer="javaDeserializer"
+		serializer="javaSerializer" single-use="true" using-nio="false" />
 
 	<!-- Inbound TCP Gateway -->
- 	<int-ip:tcp-inbound-gateway id="gatewayLf" connection-factory="server" 
-		request-channel="request" auto-startup="true" reply-channel="encoded-response"/>
+	<int-ip:tcp-inbound-gateway id="gatewayLf"
+		connection-factory="server" request-channel="request"
+		auto-startup="true" reply-channel="encoded-response"
+		reply-timeout="10000" />
 
 	<!-- Encryption Transformers -->
  	<int:transformer id="encryptor-transformer"
@@ -110,14 +112,16 @@
 
 	<int-jdbc:stored-proc-outbound-gateway
 		id="outbound-gateway-storedproc" data-source="dataSource"
-		request-channel="decrypted-request" reply-channel="sp_response" is-function="false"
-		stored-procedure-name="is_p_autorizar_msg" >
+		request-channel="decrypted-request" reply-channel="sp_response"
+		is-function="false"
+		stored-procedure-name="is_k_protocolo.is_p_autorizar_msg"
+		ignore-column-meta-data="true">
 		<int-jdbc:sql-parameter-definition name="Pi_CodProceso"  type="INTEGER" direction="IN"/>
 		<int-jdbc:sql-parameter-definition name="Pv_MsgReqRes" 	 type="VARCHAR" direction="INOUT"/>
 		<int-jdbc:sql-parameter-definition name="Pv_CodigoError" type="VARCHAR" direction="INOUT"/>
 		<int-jdbc:parameter name="Pi_CodProceso" expression="1" />
 		<int-jdbc:parameter name="Pv_MsgReqRes" expression="payload" />
-		<int-jdbc:parameter name="Pv_CodigoError" expression="200" />
+		<int-jdbc:parameter name="Pv_CodigoError" />
     </int-jdbc:stored-proc-outbound-gateway>
 
 	<!-- ***** Encoding Service ***** -->
