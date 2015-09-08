@@ -37,17 +37,26 @@
 	
 	<!-- DataSource -->
 	<bean class="org.apache.commons.dbcp.BasicDataSource" id="dataSource" destroy-method="close">
-	
-		<property name="driverClassName" value="${database.driver}"/> 
+		
+		<!-- Oracle tuneup
+       	<property name="connectionCachingEnabled" value="true" />
+		<property name="connectionCacheProperties">
+      		<value>
+        		MinLimit:1
+        		MaxLimit:5
+        		InitialLimit:1
+        		ConnectionWaitTimeout:120
+        		InactivityTimeout:180
+        		ValidateConnection:true
+      		</value>
+   		</property>		
+   		-->
+   		
+   		<property name="driverClassName" value="${database.driver}"/> 
 		<property name="url" value="${database.url}"/> 
 		<property name="username" value="${database.user}"/> 
 		<property name="password" value="${database.password}"/>
 	  
-		<!-- <property name="driverClassName" value="org.hsqldb.jdbcDriver"/> 
-		<property name="url" value="jdbc:hsqldb:hsql://localhost:9001"/> 
-		<property name="username" value="sa"/> 
-		<property name="password" value=""/> -->
-	
 	</bean> 
 
 	<!-- ***** END: Common Persistence Beans ***** -->
@@ -71,7 +80,7 @@
 	<!-- Connection Factory -->
 	<int-ip:tcp-connection-factory id="server" type="server"
 		port="${availableServerSocket}" deserializer="javaDeserializer"
-		serializer="javaSerializer" single-use="true" using-nio="false" />
+		serializer="javaSerializer" single-use="false" using-nio="true" />
 
 	<!-- Inbound TCP Gateway -->
 	<int-ip:tcp-inbound-gateway id="gatewayLf"
@@ -110,18 +119,21 @@
  	
 	<!-- ***** JDBC SP Outbound Gateway ***** -->
 
+		
+	<!-- Replace this line for Oracle: stored-procedure-name="is_k_protocolos.is_p_autorizar_msg"-->
+
 	<int-jdbc:stored-proc-outbound-gateway
 		id="outbound-gateway-storedproc" data-source="dataSource"
 		request-channel="decrypted-request" reply-channel="sp_response"
 		is-function="false"
-		stored-procedure-name="is_k_protocolo.is_p_autorizar_msg"
+		stored-procedure-name="is_p_autorizar_msg"
 		ignore-column-meta-data="true">
 		<int-jdbc:sql-parameter-definition name="Pi_CodProceso"  type="INTEGER" direction="IN"/>
 		<int-jdbc:sql-parameter-definition name="Pv_MsgReqRes" 	 type="VARCHAR" direction="INOUT"/>
 		<int-jdbc:sql-parameter-definition name="Pv_CodigoError" type="VARCHAR" direction="INOUT"/>
 		<int-jdbc:parameter name="Pi_CodProceso" expression="1" />
 		<int-jdbc:parameter name="Pv_MsgReqRes" expression="payload" />
-		<int-jdbc:parameter name="Pv_CodigoError" />
+		<int-jdbc:parameter name="Pv_CodigoError" expression="1" />
     </int-jdbc:stored-proc-outbound-gateway>
 
 	<!-- ***** Encoding Service ***** -->
