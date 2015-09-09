@@ -118,15 +118,15 @@
  	</int:service-activator>
  	
 	<!-- ***** JDBC SP Outbound Gateway ***** -->
-
 		
-	<!-- Replace this line for Oracle: stored-procedure-name="is_k_protocolos.is_p_autorizar_msg"-->
+	<!-- Replace this line for Oracle: 		stored-procedure-name="is_k_protocolos.is_p_autorizar_msg" -->
+	<!-- Replace this line for Postgres: 	stored-procedure-name="is_p_autorizar_msg" -->
 
 	<int-jdbc:stored-proc-outbound-gateway
 		id="outbound-gateway-storedproc" data-source="dataSource"
 		request-channel="decrypted-request" reply-channel="sp_response"
 		is-function="false"
-		stored-procedure-name="is_p_autorizar_msg"
+		stored-procedure-name="is_k_protocolos.is_p_autorizar_msg"
 		ignore-column-meta-data="true">
 		<int-jdbc:sql-parameter-definition name="Pi_CodProceso"  type="INTEGER" direction="IN"/>
 		<int-jdbc:sql-parameter-definition name="Pv_MsgReqRes" 	 type="VARCHAR" direction="INOUT"/>
